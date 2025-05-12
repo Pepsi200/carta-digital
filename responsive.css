@@ -1,0 +1,273 @@
+/* Optimización móvil mejorada */
+
+/* Estilos generales para dispositivos móviles */
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 16px;
+    }
+
+    /* Header más compacto */
+    header {
+        padding: 1.5rem 0.8rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Mejora de los botones de filtro */
+    .filters {
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        min-width: 40%;
+        flex-grow: 1;
+    }
+
+    /* Secciones del menú */
+    .menu-section {
+        margin: 20px 10px;
+        border-radius: 8px;
+    }
+
+    .menu-section h2 {
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+
+    /* Elementos del menú */
+    .menu-item {
+        padding: 1rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    /* Adaptar imágenes para móvil */
+    .menu-item-image {
+        width: 80px;
+        height: 80px;
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .menu-item-content {
+        flex: 1;
+        min-width: 60%;
+    }
+
+    .menu-item div {
+        padding-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .menu-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .menu-item p {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Precios más visibles */
+    .menu-item span {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #7a1c1c;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 0.3rem 0.5rem;
+        border-radius: 4px;
+        align-self: flex-start;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Etiquetas (Nuevo, Recomendado) */
+    .menu-item::after {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.8rem 0.3rem 1.2rem;
+        border-radius: 0 0 0 15px;
+    }
+
+    .menu-item[data-tags="Nuevo"]::before,
+    .menu-item[data-tags="Recomendado"]::before {
+        top: 0.3rem;
+        right: 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Añadir efecto de brillo para llamar más la atención en móviles */
+    .menu-item[data-tags="Nuevo"]::after,
+    .menu-item[data-tags="Recomendado"]::after {
+        animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.8;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* Footer */
+    footer {
+        padding: 1.5rem 1rem;
+        text-align: center;
+    }
+
+    .social-links {
+        margin-top: 0.8rem;
+    }
+
+    .social-links a {
+        font-size: 1.5rem;
+    }
+
+    /* Scroll to top */
+    .scroll-top {
+        width: 35px;
+        height: 35px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Optimizaciones específicas para pantallas muy pequeñas */
+@media screen and (max-width: 350px) {
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .menu-item h3 {
+        font-size: 1rem;
+    }
+}
+
+/* Optimizaciones para dispositivos de pantalla mediana (tabletas) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .menu-section {
+        margin: 30px 15px;
+    }
+
+    .menu-item {
+        padding: 1.2rem 1.5rem;
+    }
+}
+
+/* Mejoras de interacción táctil */
+@media (hover: none) {
+
+    /* Eliminar efectos hover que pueden causar problemas en dispositivos táctiles */
+    .menu-item:hover {
+        transform: none;
+    }
+
+    /* Hacer los botones más grandes para facilitar la interacción táctil */
+    .filter-btn,
+    .social-links a,
+    .scroll-top {
+        min-height: 44px;
+        /* Tamaño mínimo recomendado para objetivos táctiles */
+    }
+
+    /* Asegurar que los enlaces y botones sean fáciles de tocar */
+    .menu-item {
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+    }
+}
+
+/* Estilos para mejorar la experiencia táctil */
+.touch-friendly {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    touch-action: manipulation;
+}
+
+.tapped {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    transform: scale(0.98);
+}
+
+/* Mejorar visibilidad de los indicadores de nuevo/recomendado en móvil */
+@media screen and (max-width: 767px) {
+    .menu-item::after {
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ajustar el contenido para mejor legibilidad */
+    .menu-item-content {
+        width: 100%;
+    }
+
+    /* Mejorar la presentación de los precios */
+    .menu-price {
+        margin-top: 0.5rem;
+        align-self: flex-end;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mejora en los botones de navegación */
+    .filters {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* Estilos para el modo oscuro en móvil */
+@media screen and (max-width: 767px) {
+    .dark-mode-toggle {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    body.dark-mode .menu-price {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: var(--accent-color);
+    }
+
+    body.dark-mode .menu-section h2 {
+        background: linear-gradient(45deg, #111827, #000000);
+    }
+
+    body.dark-mode .menu-item::after {
+        background: var(--accent-color);
+        color: #111827;
+    }
+}
+
+/* Transición suave al cambiar de modo */
+body,
+body.dark-mode,
+body *,
+body.dark-mode * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

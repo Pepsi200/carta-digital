@@ -1,0 +1,351 @@
+/* Estilos adicionales para las etiquetas de "Nuevo" y "Recomendado" */
+
+/* Efecto de pulso para ítems recomendados */
+.recommendation-pulse {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(67, 206, 162, 0.5);
+    z-index: 1;
+    pointer-events: none;
+    animation: pulse 2s infinite;
+    transform: translate(15px, -15px);
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(15px, -15px) scale(0.8);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translate(15px, -15px) scale(1.2);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translate(15px, -15px) scale(0.8);
+        opacity: 0.7;
+    }
+}
+
+/* Efecto de brillo para elementos "Nuevo" */
+.new-item {
+    position: relative;
+}
+
+.new-item::after {
+    box-shadow: 0 5px 15px rgba(255, 94, 98, 0.5);
+    animation: glow 3s infinite;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 5px 15px rgba(255, 94, 98, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 5px 15px rgba(255, 94, 98, 0.7);
+    }
+
+    100% {
+        box-shadow: 0 5px 15px rgba(255, 94, 98, 0.3);
+    }
+}
+
+/* Estilos específicos para la etiqueta "Nuevo" con efecto de brillo */
+.menu-item[data-tags="Nuevo"]::after {
+    background: linear-gradient(135deg, #ff5e62, #ff9966);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item[data-tags="Nuevo"]::after {
+    animation: shimmer-new 2s infinite;
+}
+
+@keyframes shimmer-new {
+    0% {
+        background-position: -100% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Estilos específicos para la etiqueta "Recomendado" con efecto de brillo */
+.menu-item[data-tags="Recomendado"]::after {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.menu-item[data-tags="Recomendado"]::after {
+    animation: shimmer-recommended 2s infinite;
+}
+
+@keyframes shimmer-recommended {
+    0% {
+        background-position: -100% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Optimización para modo oscuro */
+body.dark-mode .recommendation-pulse {
+    background: rgba(67, 206, 162, 0.3);
+}
+
+body.dark-mode .new-item::after {
+    box-shadow: 0 5px 15px rgba(255, 94, 98, 0.4);
+}
+
+body.dark-mode .recommended-item::before {
+    opacity: 0.15;
+}
+
+/* Estilos para los iconos en los títulos */
+.new-icon {
+    color: #ff5e62;
+    margin-left: 5px;
+    font-size: 0.8em;
+    vertical-align: middle;
+    animation: bounce 2s infinite;
+}
+
+.recommended-icon {
+    color: #43cea2;
+    margin-left: 5px;
+    font-size: 0.8em;
+    vertical-align: middle;
+    animation: rotate 3s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(10deg);
+    }
+
+    75% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Adaptaciones para modo oscuro */
+body.dark-mode .new-icon {
+    color: #ff9966;
+    text-shadow: 0 0 5px rgba(255, 153, 102, 0.7);
+}
+
+body.dark-mode .recommended-icon {
+    color: #43cea2;
+    text-shadow: 0 0 5px rgba(67, 206, 162, 0.7);
+}
+
+/* Estilos para los badges */
+.recommendation-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: #43cea2;
+    opacity: 0.7;
+    transform: rotate(-15deg);
+    transition: all 0.3s ease;
+}
+
+.recommendation-badge i {
+    margin: 0 -2px;
+    text-shadow: 0 0 5px rgba(67, 206, 162, 0.3);
+}
+
+.recommendation-badge i:nth-child(2) {
+    font-size: 14px;
+}
+
+.new-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: #ff5e62;
+    opacity: 0.7;
+    animation: spin 4s linear infinite;
+    transition: all 0.3s ease;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.menu-item:hover .recommendation-badge,
+.menu-item:hover .new-badge {
+    opacity: 1;
+    transform: scale(1.2) rotate(-15deg);
+}
+
+.menu-item:hover .new-badge {
+    transform: scale(1.2) rotate(0deg);
+}
+
+/* Estilo especial para el badge en dark mode */
+body.dark-mode .recommendation-badge {
+    color: #43cea2;
+    text-shadow: 0 0 8px rgba(67, 206, 162, 0.5);
+}
+
+body.dark-mode .new-badge {
+    color: #ff9966;
+    text-shadow: 0 0 8px rgba(255, 153, 102, 0.5);
+}
+
+/* Efectos para dispositivos táctiles */
+.touch-friendly {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tapped {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    transform: scale(0.98);
+}
+
+.new-tapped::after {
+    box-shadow: 0 0 20px rgba(255, 94, 98, 0.8) !important;
+    transform: translateY(-5px);
+}
+
+.recommended-tapped::after {
+    box-shadow: 0 0 20px rgba(67, 206, 162, 0.8) !important;
+    transform: translateY(-5px);
+}
+
+.new-tapped .new-badge,
+.recommended-tapped .recommendation-badge {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+/* Dark mode para efectos táctiles */
+body.dark-mode .tapped {
+    background-color: rgba(55, 65, 81, 0.9) !important;
+}
+
+body.dark-mode .new-tapped::after {
+    box-shadow: 0 0 20px rgba(255, 153, 102, 0.8) !important;
+}
+
+body.dark-mode .recommended-tapped::after {
+    box-shadow: 0 0 20px rgba(67, 206, 162, 0.8) !important;
+}
+
+/* Adaptaciones para móvil */
+@media screen and (max-width: 767px) {
+    .recommendation-pulse {
+        width: 20px;
+        height: 20px;
+        transform: translate(10px, -10px);
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: translate(10px, -10px) scale(0.8);
+            opacity: 0.7;
+        }
+
+        50% {
+            transform: translate(10px, -10px) scale(1.2);
+            opacity: 0.5;
+        }
+
+        100% {
+            transform: translate(10px, -10px) scale(0.8);
+            opacity: 0.7;
+        }
+    }
+
+    .recommended-item::before {
+        font-size: 1.5rem;
+        bottom: 5px;
+        right: 5px;
+    }
+
+    .new-icon,
+    .recommended-icon {
+        font-size: 0.7em;
+    }
+
+    /* Mejoras para la visualización móvil de las etiquetas */
+    .menu-item::after {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.8rem 0.3rem 1.2rem;
+    }
+
+    .menu-item[data-tags="Nuevo"]::after,
+    .menu-item[data-tags="Recomendado"]::after {
+        background-size: 200% 100%;
+    }
+
+    /* Hacer un poco más pequeños los pulsos para ahorrar espacio */
+    .recommendation-pulse {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Clip path para los badges móviles */
+    .menu-item[data-tags="Nuevo"]::after,
+    .menu-item[data-tags="Recomendado"]::after {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+    }
+
+    .recommendation-badge,
+    .new-badge {
+        bottom: 5px;
+        right: 5px;
+        font-size: 10px;
+    }
+
+    .recommendation-badge i:nth-child(2) {
+        font-size: 12px;
+    }
+
+    .new-badge {
+        font-size: 14px;
+    }
+}

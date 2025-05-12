@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante - Carta Digital</title>
+    <!-- Favicon -->
+    <link rel="icon" href="foto para favicon de la pagina.jpg" type="image/jpeg">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Open+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="tag-styles.css">
+</head>
+
+<body>
+    <!-- Barra de progreso -->
+    <div id="progress-bar"></div>
+
+    <!-- Botón de Modo Oscuro -->
+    <div class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <h1>Gastronomía Contemporánea</h1>
+            <!-- Botones de filtro -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todo</button>
+                <button class="filter-btn" data-filter="entradas">Entradas</button>
+                <button class="filter-btn" data-filter="platos-principales">Platos Principales</button>
+                <button class="filter-btn" data-filter="especialidades">Especialidades</button>
+                <button class="filter-btn" data-filter="postres">Postres</button>
+            </div>
+        </div>
+    </header> <!-- Asignar IDs a las secciones para facilitar la navegación -->
+    <section class="menu-section" id="entradas">
+        <h2>Entradas</h2>
+        <div class="menu-item" data-category="entradas" data-tags="Nuevo">
+            <div class="menu-item-content">
+                <h3>Ensalada César <i class="fas fa-leaf new-icon"></i></h3>
+                <div class="loading-spinner"></div>
+                <img src="img/ensaladacesar.png" alt="Ensalada César" class="loaded">
+                <p>Lechuga fresca, crutones, queso parmesano y aderezo César.</p>
+                <span class="menu-price">$8.00</span>
+            </div>
+        </div>
+        <div class="menu-item" data-category="entradas" data-tags="Recomendado">
+            <div class="menu-item-content">
+                <h3>Sopa del Día <i class="fas fa-utensils recommended-icon"></i></h3>
+                <div class="loading-spinner"></div>
+                <img src="img/sopas.png" alt="Sopa del Día" class="loaded">
+                <p>Consulta con nuestro personal por la opción del día.</p>
+                <span class="menu-price">$6.00</span>
+            </div>
+        </div>
+    </section>
+    <section class="menu-section" id="platos-principales">
+        <h2>Platos Principales</h2>
+        <div class="menu-item" data-category="platos-principales" data-tags="Recomendado">
+            <div class="menu-item-content">
+                <h3>Filete de Res <i class="fas fa-star recommended-icon"></i></h3>
+                <div class="loading-spinner"></div>
+                <img src="img/filete de res.png" alt="Filete de Res" class="loaded">
+                <p>Acompañado de puré de papas y vegetales al vapor.</p>
+                <span class="menu-price">$15.00</span>
+            </div>
+        </div>
+        <div class="menu-item" data-category="platos-principales" data-tags="Nuevo">
+            <div class="menu-item-content">
+                <h3>Pollo a la Parrilla <i class="fas fa-fire-alt new-icon"></i></h3>
+                <div class="loading-spinner"></div>
+                <img src="img/pollo ala parrilla.png" alt="Pollo a la Parrilla" class="loaded">
+                <p>Servido con arroz y ensalada fresca.</p>
+                <span class="menu-price">$12.00</span>
+            </div>
+        </div>
+    </section>
+    <section class="menu-section" id="postres">
+        <h2>Postres</h2>
+        <div class="menu-item" data-category="postres" data-tags="Nuevo">
+            <div class="menu-item-content">
+                <h3>Cheesecake <i class="fas fa-birthday-cake new-icon"></i></h3>
+                <div class="loading-spinner"></div>
+                <img src="img/receta-de-cheesecake-1742898428.jpg.webp" alt="Cheesecake" class="loaded">
+                <p>Con salsa de frutos rojos.</p>
+                <span class="menu-price">$5.00</span>
+            </div>
+        </div>
+        <div class="menu-item" data-category="postres" data-tags="Recomendado">
+            <div class="menu-item-content">
+                <h3>Brownie con Helado <i class="fas fa-award recommended-icon"></i></h3>
+                <div class="loading-spinner"></div>
+                <img src="img/bronie.png" alt="Brownie con Helado" class="loaded">
+                <p>Brownie de chocolate caliente con helado de vainilla.</p>
+                <span class="menu-price">$6.00</span>
+            </div>
+        </div>
+        <div class="menu-item" data-category="postres">
+            <div class="menu-item-content">
+                <h3>Tiramisú <i class="fas fa-coffee"></i></h3>
+                <div class="loading-spinner"></div>
+                <img src="img/tiramisu.png" alt="Tiramisú" class="loaded">
+                <p>Clásico postre italiano con capas de bizcocho, café y queso mascarpone.</p>
+                <span class="menu-price">$6.50</span>
+            </div>
+        </div>
+    </section>
+    <section class="menu-section" id="especialidades">
+        <h2>Especialidades</h2>
+        <div class="menu-item" data-category="especialidades" data-tags="Nuevo">
+            <div class="menu-item-content">
+                <h3>Hamburguesa Gourmet <i class="fas fa-hamburger new-icon"></i></h3>
+                <div class="loading-spinner"></div>
+                <img src="img/hamburguesa.png" alt="Hamburguesa Gourmet" class="loaded">
+                <p>200g de carne Angus, queso cheddar, bacon, cebolla caramelizada y salsa especial.</p>
+                <span class="menu-price">$13.50</span>
+            </div>
+        </div>
+        <div class="menu-item" data-category="especialidades" data-tags="Recomendado">
+            <div class="menu-item-content">
+                <h3>Pescado del Día <i class="fas fa-fish recommended-icon"></i></h3>
+                <div class="loading-spinner"></div>
+                <img src="img/pescado del dia.png" alt="Pescado del Día" class="loaded">
+                <p>Pescado fresco preparado a la parrilla con limón y hierbas. Acompañado de verduras.</p>
+                <span class="menu-price">$16.00</span>
+            </div>
+        </div>
+        <div class="menu-item" data-category="especialidades">
+            <div class="menu-item-content">
+                <h3>Pasta Mediterránea <i class="fas fa-utensils"></i></h3>
+                <div class="loading-spinner"></div>
+                <img src="img/pasta-mediterranea-01.jpg" alt="Pasta Mediterránea" class="loaded">
+                <p>Pasta al dente con tomates cherry, aceitunas, alcaparras y aceite de oliva virgen.</p>
+                <span class="menu-price">$12.00</span>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Marcos Oyola. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="https://wa.me/5493544634488" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/marcos_desarrollo" target="_blank" title="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+    <!-- Enlace al archivo JavaScript -->
+    <script src="main.js"></script>
+</body>
+
+</html>

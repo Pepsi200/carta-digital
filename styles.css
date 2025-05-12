@@ -1,0 +1,665 @@
+/* Modificaciones en el CSS */
+:root {
+    --primary-color: #2a363b;
+    /* Gris oscuro */
+    --accent-color: #c7a97f;
+    /* Beige dorado */
+    --text-dark: #3d3d3d;
+    --text-light: #757575;
+    --bg-light: #f8f5f2;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(45deg, var(--primary-color), #1a252b);
+    padding: 3rem 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.7rem 1.3rem;
+    border: 2px solid var(--accent-color);
+    background: transparent;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.filter-btn.active {
+    background: var(--accent-color) !important;
+    color: var(--primary-color) !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.filter-btn:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.menu-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    border: 1px solid #eee5dd;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: block !important;
+    /* Sobreescribe cualquier display none */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.menu-section:hover {
+    transform: translateY(-5px);
+}
+
+.menu-section:not(.visible) {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.menu-section.visible {
+    opacity: 1;
+}
+
+.menu-section h2 {
+    background: linear-gradient(45deg, #9e4b4b, #7a1c1c);
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.menu-section h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #d4af37;
+}
+
+/* Nuevo estilo tipo cinta (ribbon) para las etiquetas */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    perspective: 1200px;
+    /* Aumentar la perspectiva */
+    transform-style: preserve-3d;
+}
+
+.menu-item:hover {
+    transform: rotateY(15deg) translateZ(20px);
+    /* Efecto de rotación y profundidad más pronunciado */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.menu-item-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.menu-item-content img {
+    width: 100% !important;
+    height: 250px !important;
+    /* Aumenté la altura para mejor visualización */
+    object-fit: cover !important;
+    border-radius: 8px;
+    /* Bordes redondeados */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animación suave */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+.menu-item-content img:hover {
+    transform: rotateY(15deg) scale(1.1);
+    /* Efecto 3D en imágenes */
+}
+
+/* Efecto overlay al hover */
+.menu-item:hover img {
+    transform: scale(1.05);
+}
+
+.menu-item:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+/* Ajustes para garantizar consistencia en títulos, precios y descripciones */
+
+/* Títulos (h3) */
+.menu-item h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    /* Tamaño uniforme */
+    margin-bottom: 0.8rem;
+    /* Espaciado uniforme */
+    position: relative;
+    display: inline-block;
+}
+
+.menu-item h3::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    /* Ajuste para alineación uniforme */
+    left: 0;
+    width: 40px;
+    /* Ancho consistente */
+    height: 2px;
+    background: var(--accent-color);
+}
+
+/* Descripciones (p) */
+.menu-item p {
+    color: var(--text-light);
+    font-size: 1rem;
+    /* Tamaño uniforme */
+    line-height: 1.6;
+    /* Mejor legibilidad */
+    margin-bottom: 1rem;
+    /* Espaciado uniforme */
+}
+
+/* Precios */
+.menu-price {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    /* Tamaño uniforme */
+    text-align: right;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* Nuevo estilo para las etiquetas de platos */
+.menu-item::after {
+    content: attr(data-tags);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.4rem 1rem 0.4rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 0 20px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos específicos para la etiqueta "Nuevo" */
+.menu-item[data-tags="Nuevo"]::after {
+    background: linear-gradient(135deg, #ff5e62, #ff9966);
+    color: white;
+}
+
+/* Estilos específicos para la etiqueta "Recomendado" */
+.menu-item[data-tags="Recomendado"]::after {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    color: white;
+}
+
+/* Añadir iconos a las etiquetas */
+.menu-item[data-tags="Nuevo"]::before {
+    content: "🆕";
+    position: absolute;
+    top: 0.4rem;
+    right: 1.5rem;
+    font-size: 1rem;
+    z-index: 2;
+}
+
+.menu-item[data-tags="Recomendado"]::before {
+    content: "⭐";
+    position: absolute;
+    top: 0.4rem;
+    right: 1.5rem;
+    font-size: 1rem;
+    z-index: 2;
+}
+
+/* Mejorar la experiencia de hover para ítems con etiquetas */
+.menu-item[data-tags="Nuevo"]:hover,
+.menu-item[data-tags="Recomendado"]:hover {
+    transform: translateX(5px) translateY(-3px);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto hover para las etiquetas */
+.menu-item:hover::after {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.menu-item div {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+footer {
+    background: #7a1c1c;
+    /* Tono rojo oscuro */
+    color: #ffffff;
+    /* Cambiado a blanco para mejor visibilidad */
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+/* Estilos para los enlaces sociales en el footer */
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+    color: var(--accent-color);
+}
+
+/* Variables para modo oscuro */
+body.dark-mode {
+    --primary-color: #111827;
+    --accent-color: #d4af37;
+    --text-dark: #f3f4f6;
+    --text-light: #d1d5db;
+    --bg-light: #1f2937;
+}
+
+/* Estilos para el botón de modo oscuro */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos específicos para modo oscuro */
+body.dark-mode {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+body.dark-mode header {
+    background: linear-gradient(45deg, #111827, #000000);
+}
+
+body.dark-mode .menu-section {
+    border-color: #374151;
+    background-color: rgba(31, 41, 55, 0.7);
+}
+
+body.dark-mode .menu-item {
+    border-bottom-color: #374151;
+    background-color: rgba(17, 24, 39, 0.7);
+}
+
+body.dark-mode .menu-item:hover {
+    background-color: rgba(55, 65, 81, 0.5);
+}
+
+body.dark-mode .menu-item h3 {
+    color: #f3f4f6;
+}
+
+body.dark-mode .menu-item h3::after {
+    background: var(--accent-color);
+}
+
+body.dark-mode .menu-item p {
+    color: #d1d5db;
+}
+
+body.dark-mode .menu-price {
+    color: var(--accent-color);
+}
+
+body.dark-mode .menu-item-image {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid #374151;
+}
+
+body.dark-mode .menu-item[data-tags="Nuevo"]::after {
+    background: linear-gradient(135deg, #ff5e62, #ff9966);
+    color: white;
+}
+
+body.dark-mode .menu-item[data-tags="Recomendado"]::after {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    color: white;
+}
+
+body.dark-mode .menu-item:hover::after {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode footer {
+    background: #111827;
+}
+
+body.dark-mode .social-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Mejoras en responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 3rem 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-item span {
+        margin-top: 1rem;
+        text-align: left;
+    }
+
+    .menu-section h2 {
+        font-size: 1.4rem;
+    }
+
+    /* Animaciones para dispositivos móviles */
+    .menu-item {
+        animation: none;
+        /* Eliminado !important para evitar conflictos */
+    }
+
+    .menu-item.animate {
+        animation: slideIn 0.5s ease forwards;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Eliminar o comentar estas animaciones conflictivas */
+    /*
+    .menu-item:hover {
+        animation: bounceHover 0.5s ease infinite;
+    }
+
+    @keyframes bounceIn {
+        0% {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        50% {
+            transform: scale(1.1);
+            opacity: 0.5;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes bounceHover {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+    */
+
+    /* Mantener solo esta animación para imágenes */
+    @keyframes fadeZoomIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+/* Añadir decoración de esquina */
+.menu-section::before,
+.menu-section::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #d4af37;
+}
+
+.menu-section::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.menu-section::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-section {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Estilos para la animación de carga */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeOut 1s ease 2s forwards;
+}
+
+.loading-screen .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background: var(--accent-color);
+    z-index: 1000;
+}
+
+/* Añadir partículas modernas */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/circles.png');
+    /* Patrón de partículas */
+    opacity: 0.2;
+    z-index: -1;
+}
+
+#particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-50px) scale(1.2);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
